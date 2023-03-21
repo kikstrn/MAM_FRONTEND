@@ -1,0 +1,21 @@
+<div class='card1' id="{{index}}">
+    <header class='cardHeader'>
+        <a href="/profil/{{event.master._id}}" *ngIf="event.master; else noAuthor">
+            <span class='cardHeader_account'><img  src="{{event.master.avatar}}" alt="" width="50" height="50">{{event.master.username}}</span>
+        </a>
+        <p *ngIf="isAuthor" class='cardDelete' id="delete{{index}}" (click)="deleteEvent()">Supprimer</p>
+    </header>
+    <div class='cardBody'>
+        <p class='cardTitle'>{{event.title}}</p>
+        <p class='cardText'>{{event.description}}</p>
+        <p class='cardText'>Nbr max de joueurs : {{event.max_nb_player}}</p>
+        <p class='cardText'>Début :  {{event.start_event.toLocaleString()}}</p>
+        <p class='cardText'>Fin : {{event.end_event.toLocaleString()}}</p>
+        <hr>
+        <p class='cardText' id="remaining{{index}}">Place Restante : {{remaining}}</p>
+        <button mat-raised-button class="btn-join-event" id="button{{index}}" (click)="joinOrLeaveEvent()">Participer</button>
+    </div>
+    <ng-template #noAuthor>
+        <span class='cardHeader_account'>Ancien utilisateur</span>
+    </ng-template>
+</div>

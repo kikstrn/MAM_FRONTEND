@@ -1,0 +1,92 @@
+/* Google Font Import - Poppins */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    /* ===== Colors ===== */
+    --body-color: #18191a;
+    --sidebar-color: #242526;
+    --primary-color: #3a3b3c;
+    --primary-color-light: #3a3b3c;
+    --secondary-color: #5a4fcf;
+    --toggle-color: #fff;
+    --text-color: #ccc;
+    --text-color-light: rgb(240, 240, 240);
+    /* ====== Transition ====== */
+    --tran-03: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.3s ease;
+    --tran-05: all 0.3s ease;
+
+    /* ======== Scrollbar firefox =====*/
+    scrollbar-width: thin;
+    scrollbar-color: var(--secondary-color) var(--primary-color);
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--body-color);
+    transition: var(--tran-05);
+    overflow-x: hidden;
+}
+
+::selection {
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+}
+
+mat-dialog-container {
+    background-color: rgb(31, 31, 31) !important;
+    color: white !important;    
+    overflow:auto
+}
+.mat-dialog-content{
+    max-height: none !important;
+}
+
+.mat-form-field-label {
+    color: white !important;
+}
+
+.mat-form-field-underline {
+    background-color: white !important;
+}
+
+
+/* Chrome, Edge, and Safari */
+
+*::-webkit-scrollbar {
+    width: 7px;
+    scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar-track {
+    background: #19191a;
+    scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--secondary-color);
+    border-radius: 100px;
+    border: 3px none #ff0000;
+    scrollbar-width: thin;
+}
+
+.snackbar {
+    background-color: var(--secondary-color);
+    text-align: center;
+    color: var(--text-color-light);
+}
+
+.cdk-overlay-backdrop.cdk-overlay-backdrop-showing {
+    backdrop-filter: blur(11px);
+}
+.cdk-overlay-pane{
+    max-width: none !important;
+}

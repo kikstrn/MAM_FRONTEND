@@ -1,0 +1,26 @@
+.container {
+    padding: 10px;
+}
+.container > p{
+    text-align: center;
+    margin-bottom: 1vh;
+}
+.container > div{
+    display: flex; 
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.btn_yes {
+    width: 150px;
+    background-color: var(--secondary-color);
+    color: var(--text-color-light);
+    margin-left: 1rem
+}
+
+.btn_no{
+    width: 150px;
+    background-color: var(--secondary-color);
+    color: var(--text-color-light);
+    margin-left: 1rem
+}

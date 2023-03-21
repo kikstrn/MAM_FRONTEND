@@ -1,0 +1,16 @@
+<div class="gallery">
+    <a class="gallery__link" *ngFor="let artwork of artworks">
+        <figure class="gallery__thumb" >
+            <img src="{{artwork.url}}" class="gallery__image" (click)="openDialog(artwork)">
+            <figcaption class="gallery__caption" (click)="redirectGame(artwork.idGame)">
+                <div style="cursor: pointer;" >
+                    {{artwork.title}}
+                </div>            
+            </figcaption>
+        </figure>
+    </a>
+</div>
+
+
+
+

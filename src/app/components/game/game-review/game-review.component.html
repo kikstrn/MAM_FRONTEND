@@ -1,0 +1,8 @@
+<div class="global-container">
+    <div>
+        <button mat-raised-button class="new-review" (click)="openDialogQuestion()">Ajouter un avis</button>
+    </div>
+    <div *ngFor="let review of reviews; let index = index;" class='deck'>
+        <app-card-review [review]="review" [index]="index"></app-card-review>
+    </div>
+</div>

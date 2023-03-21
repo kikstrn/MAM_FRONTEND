@@ -1,0 +1,33 @@
+<div class="card-global" id="{{user._id}}">
+    <div class='card1'>
+        <div class='cardHeader'>
+            <a>
+                <span class='cardHeader_account'><img  src="{{user.avatar}}" alt="" width="50" height="50"></span>
+            </a>
+        </div>
+        <div class='cardBody'>
+            <div>
+                <div (click)="onClick(user._id)">
+                    {{user.username}}
+                </div>
+            </div>
+            <div>
+                <div *ngIf="!isAdmin">
+                    <mat-icon style="color:green" title="Mettre Role Administrateur" (click)="setAdminOrRemove(true, user._id)"> call_made</mat-icon>
+                </div> 
+                <div *ngIf="isAdmin">
+                    <mat-icon style="color: #ef233c ;" title="Enlever Role Administrateur" (click)="setAdminOrRemove(false, user._id)"> call_received</mat-icon>
+                </div>
+                <div *ngIf="!isActive">
+                    <mat-icon style="color:green" title="Réactiver l'utilisateur" (click)="disableOrEnable(true, user._id)">add_circle</mat-icon>
+                </div> 
+                <div *ngIf="isActive">
+                    <mat-icon style="color:#ef233c" title="Désactiver l'utilisateur" (click)="disableOrEnable(false, user._id)">remove_circle</mat-icon>
+                </div> 
+                <div>
+                    <mat-icon style="color:#ef233c" title="Supprimer le compte" (click)="deleteAccount(user._id)">delete</mat-icon>
+                </div> 
+            </div>                                     
+        </div>
+    </div>
+</div>

@@ -1,0 +1,89 @@
+<div class="header">
+    <img src="https://growupesports.com/up/wp-content/uploads/2017/05/up-15-anos-no-text-1.png">
+    <div class="header-infos">
+        <p class="header-text">Laisse des avis sur les jeux auxquels tu as déjà joué.</p>
+        <p class="header-text">Rejoins ou crée des événements sur tes jeux favoris ! </p>
+        <p class="header-text"> Pour n’importe quel jeu et n’importe quelle plateforme. </p>
+        <p class="header-text">Créé ton profil, rejoins notre discord pour plus de FUN, de VICTOIRES et de TEAMPLAY !</p>
+    </div>
+    <mat-card class="discord-card">
+        <iframe src="https://discord.com/widget?id=832157160099020800&theme=dark" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+    </mat-card>
+</div>
+
+
+<div class="flex-header-carousel">
+    <div>
+        <h2><strong>Jeux Populaires</strong></h2>
+    </div>
+    <div class="scroll">
+        <div class="scroll-left">
+            <div class=material-icons (click)="scrollLeft(1)">chevron_left</div>
+        </div>
+        <div class="scroll-right">
+            <div class=material-icons (click)="scrollRight(1)">chevron_right</div>
+        </div>
+    </div>
+</div>
+<div class="carousel" id="carouselPopularGame">
+    <div class="cards" *ngFor="let game of popularGames.data">
+        <app-card-game [game]="game"></app-card-game>
+    </div>
+</div>
+
+<div class="flex-header-carousel">
+    <div>
+        <h2><strong>Jeux Attendus</strong></h2>
+    </div>
+    <div class="scroll">
+        <div class="scroll-left">
+            <div class=material-icons (click)="scrollLeft(2)">chevron_left</div>
+        </div>
+        <div class="scroll-right">
+            <div class=material-icons (click)="scrollRight(2)">chevron_right</div>
+        </div>
+    </div>
+</div>
+<div class="carousel" id="carouselMostAnticipated">
+    <div class="cards" *ngFor="let game of mostAnticipated.data">
+        <app-card-large [game]="game"> </app-card-large>
+    </div>
+</div>
+
+<div class="flex-header-carousel">
+    <div>
+        <h2><strong>Sorties Récentes</strong></h2>
+    </div>
+    <div class="scroll">
+        <div class="scroll-left">
+            <div class=material-icons (click)="scrollLeft(3)">chevron_left</div>
+        </div>
+        <div class="scroll-right">
+            <div class=material-icons (click)="scrollRight(3)">chevron_right</div>
+        </div>
+    </div>
+</div>
+<div class="carousel" id="carouselRecentlyReleased">
+    <div class="cards" *ngFor="let game of recentlyReleased.data">
+        <app-card-game class="card" [game]="game"></app-card-game>
+    </div>
+</div>
+
+<div class="flex-header-carousel">
+    <div>
+        <h2><strong>Prochaines Sorties</strong></h2>
+    </div>
+    <div class="scroll">
+        <div class="scroll-left">
+            <div class=material-icons (click)="scrollLeft(4)">chevron_left</div>
+        </div>
+        <div class="scroll-right">
+            <div class=material-icons (click)="scrollRight(4)">chevron_right</div>
+        </div>
+    </div>
+</div>
+<div class="carousel" id="carouselNextRelease">
+    <div class="cards" *ngFor="let game of nextRelease.data">
+        <app-card-large [game]="game"> </app-card-large>
+    </div>
+</div>

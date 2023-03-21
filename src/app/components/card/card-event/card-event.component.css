@@ -1,0 +1,112 @@
+.card+.card {
+    margin-top: 1em
+}
+
+.card1:hover,
+.card2:hover {
+    z-index: 7;
+    transform: scale(1.05);
+    box-shadow: 0 4px 25px rgba(0, 0, 0, .4)
+}
+
+.cardHeader {
+    display: flex;
+    grid-template-columns: 36px auto 100px;
+    align-items: center;
+    text-transform: uppercase;
+    justify-content: space-between
+}
+
+.cardHeader .cardHeader_account {
+    color: #c6e1ed;
+    font-size: .85em;
+    font-weight: 600;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.cardHeader_account img {
+    margin-right: 1vh
+}
+
+.cardHeader .cardHeader_date {
+    margin: 10px;
+    color: #c6e1ed;
+    font-size: .85em;
+    font-weight: 600;
+    text-align: right
+}
+
+.cardBody {
+    display: flex;
+    margin: 0 10px 10px;
+    justify-content: space-between;
+    flex-direction: column
+}
+
+.cardBody .cardText {
+    margin: 0 10px 0 0;
+    white-space: pre-line;
+    color: #c0c3d7;
+    font-weight: 400;
+    line-height: 1.5;
+    word-wrap: break-word;
+    margin-top: 1vh
+}
+
+.cardBody {
+    display: flex;
+    justify-content: center;
+    font-weight: 500
+}
+
+.cardTitle {
+    display: flex;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: var(--text-color-light);
+}
+.cardDelete{
+    justify-content: center;
+    display: block;
+    font-size: 0.7rem;
+    color: #ff6f6f;
+    cursor: pointer;
+}
+
+div.card1 {
+    position: relative;
+    background-color: #1f1f1f;
+    padding: 1em;
+    margin-top: -6em;
+    z-index: 5;
+    border-radius: 2px;
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, .3);
+    transition: .2s ease-in-out
+}
+
+.card2 {
+    position: relative;
+    background-color: var(--secondary-color);
+    padding: 1em;
+    margin-top: -6em;
+    z-index: 5;
+    border-radius: 2px;
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, .3);
+    transition: .2s ease-in-out
+}
+
+hr {
+    width: 74%;
+    margin-top: 2rem;
+    margin-left: 6vh
+}
+
+.btn-join-event {
+    background-color: var(--secondary-color);
+    color: var(--text-color-light);
+    margin-top: 1vh
+}

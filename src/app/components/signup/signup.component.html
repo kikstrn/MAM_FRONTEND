@@ -1,0 +1,29 @@
+<div class="wrapper">
+    <div class="container">
+        <div class="col-left">
+            <div class="login-text">
+                <h2>Bienvenue</h2>
+                <p>Tu as déjà un compte ?<br>Connectes toi !</p>
+                <a class="btn" routerLink="/connexion">Connexion</a>
+            </div>
+        </div>
+        <div class="col-right">
+            <div class="login-form">
+                <h2>S'inscrire</h2>
+                <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)">
+                    <p>
+                        <label>Pseudo</label>
+                        <input type="text" placeholder="Pseudo" formControlName="pseudo" required>
+                    </p>
+                    <p>
+                        <label>Mot de passe</label>
+                        <input type="password" placeholder="Mot de passe" formControlName="password" required>
+                    </p>
+                    <p>
+                        <input type="submit" value="Valider" />
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

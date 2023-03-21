@@ -1,0 +1,37 @@
+<div class='card1' id="{{index}}">
+    <header class='cardHeader'>
+        <a href="/profil/{{review.author._id}}" *ngIf="review.author; else noAuthor">
+            <span class='cardHeader_account'><img id="avatarReview{{index}}" src="{{review.author.avatar}}" alt="" width="50" height="50">{{review.author.username}}</span>
+        </a>
+        <div *ngIf="isAuthor">
+            <p  class='cardDelete' id="delete{{index}}" (click)="deleteReview()">Supprimer</p>
+        </div>
+        <ng-template #noAuthor>
+            <span class='cardHeader_account'>Ancien utilisateur</span>
+        </ng-template>
+        <!-- <span class='cardHeader_date'>{{dateReview}}</span> -->
+    </header>
+    <div class='cardBody'>
+        <p class='cardTitle'>{{review.title}}</p>
+        <p class='cardText'>{{review.review}}</p>
+        <hr>
+        <div class="goodBadPoint">
+            <div class="goodPoint">
+                <mat-icon>thumb_up</mat-icon>
+                <p>{{review.good_point}}</p>
+            </div>
+            <div class="badPoint">
+                <mat-icon>thumb_down</mat-icon>
+                <p>{{review.bad_point}}</p>
+            </div>
+        </div>
+        <div *ngIf="goodRating; else bad">
+            <div>
+                <span class="cardRatingGood">{{review.rating}}/10</span>
+            </div>
+        </div>
+        <ng-template #bad>
+            <span class="cardRatingBad">{{review.rating}}/10</span>
+        </ng-template>
+    </div>
+</div>

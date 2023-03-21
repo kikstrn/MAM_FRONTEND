@@ -1,0 +1,91 @@
+.card-large {
+    position: relative;
+    margin: 20px;
+    width: 38vh;
+    height: 26vh;
+    overflow: hidden;
+    box-shadow: 0 5px 10px rgb(0 0 0 / 80%);
+    transform-origin: center top;
+    transform-style: preserve-3d;
+    transform: translateZ(0);
+    transition: .3s;
+    cursor: pointer;
+    border: none
+}
+
+.screenshot {
+    width: 100%;
+    min-height: 100%;
+    transition: .2s
+}
+
+.card-large:after {
+    position: absolute;
+    content: '';
+    z-index: 10;
+    width: 200%;
+    height: 100%;
+    top: -90%;
+    left: -20px;
+    opacity: .1;
+    transform: rotate(45deg);
+    background: linear-gradient(to top, transparent, #fff 15%, rgba(255, 255, 255, .5));
+    transition: .3s
+}
+
+.card-large:active,
+.card-large:focus,
+.card-large:hover {
+    box-shadow: 0 8px 16px 3px rgba(0, 0, 0, .6);
+    transform: translateY(-3px) scale(1.05) rotateX(15deg)
+}
+
+.card-large:active:after,
+.card-large:focus:after,
+.card-large:hover:after {
+    transform: rotate(25deg);
+    top: -40%;
+    opacity: .15
+}
+
+.div-screenshot {
+    background-size: cover;
+    text-align: center;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 38vh;
+    height: 26vh;
+    filter: blur(4px) brightness(40%);
+    background-color: var(--primary-color)
+}
+
+.div-cover {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    margin-left: 4%;
+    top: 4%;
+    z-index: 1
+}
+
+.div-cover img {
+    height: 23vh;
+    width: 16vh
+}
+
+.card-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1.5vh;
+    color: var(--toggle-color);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 17vh
+}
+
+.card-info div {
+    margin-bottom: 1vh
+}

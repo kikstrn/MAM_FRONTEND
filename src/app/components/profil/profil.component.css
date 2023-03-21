@@ -1,0 +1,292 @@
+a,
+button,
+input,
+li {
+    text-decoration: none;
+    list-style: none;
+    transition: .5s;
+    resize: none
+}
+
+ul li {
+    padding: 20px 0;
+    color: var(--text-color);
+    border-bottom: 1px solid var(--secondary-color);
+    width: 43vh
+}
+
+b {
+    color: var(--text-color-light)
+}
+
+.container {
+    height: 100vh;
+    max-height: 100vh;
+    display: flex;
+}
+
+
+.container-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container table {
+    width: 100%
+}
+
+.container table td {
+    padding: 26px;
+    background-color: var(--sidebar-color);
+    color: var(--text-color-light);
+    vertical-align: top
+}
+
+.container table td:nth-child(1) {
+    text-align: Center
+}
+
+.container table tr:nth-child(2) td {
+    text-align: left
+}
+
+.container table tr:nth-child(2) td input {
+    background: 0 0;
+    border-color: transparent;
+    color: var(--text-color);
+    width: 74%;
+    pointer-events: none;
+    margin-left: 1vh
+}
+
+.container table td:nth-child(1) section {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 3vh auto
+}
+
+.container table td h3 {
+    color: var(--text-color);
+    font-weight: 400
+}
+
+.container table .section2 {
+    text-align: left
+}
+
+.div-btn-flex {
+    display: flex;
+    justify-content: center;
+    border-color: transparent!important;
+    padding-top: 2vh
+}
+
+.button {
+    background-color: var(--secondary-color)
+}
+
+.avatar-upload {
+    position: relative;
+    max-width: 205px;
+    margin: 50px auto
+}
+
+.avatar-upload .avatar-edit {
+    position: absolute;
+    right: 12px;
+    z-index: 1;
+    top: 10px
+}
+
+.avatar-upload .avatar-edit input {
+    display: none
+}
+
+.avatar-upload .avatar-edit input+label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 34px;
+    height: 34px;
+    margin-bottom: 0;
+    border-radius: 100%;
+    background: var(--text-color-light);
+    border: 1px solid transparent;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .12);
+    cursor: pointer;
+    transition: all .2s ease-in-out
+}
+
+.avatar-upload .avatar-edit input+label:after {
+    font-family: "Material Icons";
+    content: "\e254";
+    color: var(--secondary-color);
+    margin: auto
+}
+
+.avatar-upload .avatar-preview {
+    width: 192px;
+    height: 192px;
+    position: relative;
+    border-radius: 100%;
+    border: 3px solid var(--secondary-color);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1)
+}
+
+.avatar-upload .avatar-preview>img {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center
+}
+
+.cards {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center
+}
+
+.card {
+    width: 17vh!important;
+    height: 23vh!important
+}
+
+.section-friends {
+    margin-top: 2vh;
+    height: 33vh;
+    overflow: auto;
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+    flex-direction: column;
+    background-color: var(--sidebar-color);
+    overflow-x: hidden
+}
+
+.flex-friend {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 1vh;
+    border: 1px solid var(--secondary-color);
+    margin-right: 2vh;
+    width: 100%;
+    cursor: pointer;
+}
+
+.flex-friend div img {
+    border-radius: 50%
+}
+
+.flex-info-friend {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 1vh;
+}
+
+.div-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%
+}
+
+.td-title {
+    text-align: left;
+    margin-bottom: 2vh
+}
+
+.user-review {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 10vh;
+    overflow: auto
+}
+
+.div-flex div {
+    width: 100%
+}
+
+.flex-header-carousel {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between
+}
+
+.scroll-left {
+    color: var(--text-color-light);
+    font-size: 30px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.scroll-left:hover {
+    background: var(--secondary-color)
+}
+
+.scroll-left .material-icons {
+    line-height: 60px;
+    font-size: 40px
+}
+
+.scroll-right {
+    color: var(--text-color-light);
+    font-size: 30px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.scroll-right:hover {
+    background: var(--secondary-color)
+}
+
+.scroll-right .material-icons {
+    line-height: 60px;
+    font-size: 40px
+}
+
+.scroll {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    right: 0;
+    position: inherit
+}
+
+.carousel {
+    display: flex;
+    overflow-x: hidden;
+    padding: 1rem 0;
+    scroll-snap-type: x mandatory;
+    height: auto;
+    width: 111vh
+}
+
+.user-review div a {
+    color: var(--text-color-light)
+}
+
+#cercle-grey {
+    width: 15px;
+    height: 15px;
+    border-radius: 20px;
+    margin-right: 1vh;
+    background: var(--body-color)
+}
+
+.flex-online {
+    display: flex;
+    flex-direction: row;
+    align-items: center
+}

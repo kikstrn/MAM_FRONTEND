@@ -1,0 +1,144 @@
+.cards {
+    display: flex;
+    flex-flow: row nowrap
+}
+
+.carousel {
+    display: flex;
+    overflow-x: scroll;
+    padding: 1rem 0;
+    scroll-snap-type: x mandatory;
+    height: auto;
+    scrollbar-width: none
+}
+
+h2,
+h2 strong {
+    vertical-align: middle
+}
+
+h2 {
+    padding: 10px;
+    padding-left: 25px;
+    color: var(--text-color-light);
+    margin: 0;
+    margin-top: 1vh
+}
+
+h2 strong {
+    z-index: 2;
+    background: var(--secondary-color);
+    padding: 4px 8px
+}
+
+h2:after {
+    content: '';
+    z-index: 1;
+    bottom: 50%;
+    margin-bottom: -2px;
+    height: 2px;
+    left: 0;
+    right: 0;
+    background: #373d47
+}
+
+.scroll-left {
+    color: var(--text-color-light);
+    font-size: 30px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.scroll-left:hover {
+    background: var(--secondary-color)
+}
+
+.scroll-left .material-icons {
+    line-height: 60px;
+    font-size: 40px
+}
+
+.scroll-right {
+    color: var(--text-color-light);
+    font-size: 30px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.scroll-right:hover {
+    background: var(--secondary-color)
+}
+
+.scroll-right .material-icons {
+    line-height: 60px;
+    font-size: 40px
+}
+
+.scroll {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    right: 0;
+    position: inherit
+}
+
+::-webkit-scrollbar {
+    display: none
+}
+
+.header {
+    position: relative;
+    height: 36vh;
+    overflow: hidden
+}
+
+.header img {
+    opacity: .6;
+    width: 100%
+}
+
+.header-title {
+    font-size: 3vh;
+    color: var(--text-color-light);
+    margin-top: 1vh
+}
+
+.header-text {
+    font-size: 2.5vh;
+    color: var(--text-color-light);
+    margin-bottom: 4vh
+}
+
+.flex-header-carousel {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between
+}
+
+.header-infos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    top: 4vh
+}
+
+.discord-card {
+    margin-bottom: 40px;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    background-color: transparent
+}
+
+.discord-card iframe {
+    height: 32.5vh;
+    width: 32.5vh
+}

@@ -1,0 +1,7 @@
+<h2><strong>Gestion des utilisateurs</strong></h2>
+<div class="container">
+    
+    <div class="containerFriend" *ngFor="let userForAdmin of users; let index = index;" class='deck'>
+        <app-card-user-admin [user]="userForAdmin" ></app-card-user-admin>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+<div class="centerContainer">
+    <div>
+        <button mat-raised-button class="new-event" (click)="openDialogEvent()">Ajouter un événement</button>
+    </div>    
+    <div class="containerEvent" *ngFor="let event of events; let index = index;" class='deck'>
+        <app-card-event [event]="event" [index]="index"></app-card-event>
+    </div>
+</div>

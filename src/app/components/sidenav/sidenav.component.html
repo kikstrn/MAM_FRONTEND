@@ -1,0 +1,83 @@
+
+<nav class="sidebar">
+    <header>
+        <div class="image-text">
+            <span class="image">
+                <img src="../../../assets/logo/logo_mam.png" alt="">
+            </span>
+            <div class="text logo-text">
+                <span class="name">Meet A Mate</span>
+            </div>
+        </div>
+
+        <i class='bx bx-chevron-right toggle' (click)="toogle()"></i>
+    </header>
+
+    <div class="menu-bar">
+
+        <div class="menu">
+            <li class="nav-link" (click)="changePage('profil')">
+                <a class="a-cursor" (click)="routingLoginOrProfil()" id="sidenav-connexion" [ngClass]="{'isActive': href == '/profil', 'isInactive': href != '/profil'}">
+                    <i class='bx bx-user icon'></i>
+                    <span class="text nav-text">{{cookieService.get('token_mam') ? 'Profil' : 'Connexion'}}</span>
+                </a>
+            </li>
+
+            <li class="search-box">
+                <i class='bx bx-search icon' (click)="toogle()"></i>
+                <input (emitFunctionOfParent)="onSearch($event)" type="text" placeholder="Search..." (keyup)="onSearch($event)">
+            </li>
+
+            <ul class="menu-links">
+                <li class="nav-link" (click)="changePage('accueil')">
+                    <a routerLink="/accueil" id="sidenav-accueil" [ngClass]="{'isActive': href == '/accueil', 'isInactive': href != '/accueil'}">
+                        <i class='bx bx-home-alt icon'></i>
+                        <span class="text nav-text">Accueil</span>
+                    </a>
+                </li>
+
+                <li class="nav-link" (click)="changePage('jeu')" >
+                    <a routerLink="/jeu" id="sidenav-jeu" [ngClass]="{'isActive': href == '/jeu', 'isInactive': href != '/jeu'}">
+                        <i class='bx bx-game icon'></i>
+                        <span class="text nav-text">Jeux</span>
+                    </a>
+                </li>
+
+                <li class="nav-link" (click)="changePage('artwork')">
+                    <a routerLink="/artwork" id="sidenav-artwork" [ngClass]="{'isActive': href == '/artwork', 'isInactive': href != '/artwork'}">
+                        <i class='bx bx-heart icon'></i>
+                        <span class="text nav-text">Artwork</span>
+                    </a>
+                </li>
+
+
+                <li class="nav-link" (click)="changePage('amis')">
+                    <a routerLink="/amis" id="sidenav-amis" [ngClass]="{'isActive': href == '/amis', 'isInactive': href != '/amis'}">
+                        <i class='bx bx-ghost icon'></i>
+                        <span class="text nav-text">Amis</span>
+                    </a>
+                </li>
+                <div *ngIf="sessionService.getSession() && sessionService.getSession().isAdmin">
+                    <li class="nav-link" (click)="changePage('admin')">
+                        <a routerLink="/admin" id="sidenav-admin" [ngClass]="{'isActive': href == '/admin', 'isInactive': href != '/admin'}">
+                            <i class='bx bx-medal icon'></i>
+                            <span class="text nav-text">Admin</span>
+                        </a>
+                    </li> 
+                </div>
+                            
+
+            </ul>
+        </div>
+
+        <div class="bottom-content" *ngIf="cookieService.get('token_mam')">
+            <li class="">
+                <a href="#" (click)="logout()">
+                    <i class='bx bx-log-out icon'></i>
+                    <span class="text nav-text">Déconnexion</span>
+                </a>
+            </li>
+        </div>
+    </div>
+</nav>
+<router-outlet></router-outlet>

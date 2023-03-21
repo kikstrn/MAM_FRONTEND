@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="centerContainer" *ngIf="user && (user.friends?.length != 0 || pendingFriends?.length != 0); else noFriends">
+        <div class="test">
+            <h2><strong>Abonnement</strong></h2>
+            <div class="containerFriend" *ngFor="let following of user.friends" class='deck'>
+                <app-card-friend [user]="following" [pending]="false"></app-card-friend>
+            </div>
+        </div>
+        <div class="test">
+            <h2><strong>Abonnés</strong></h2>
+            <div class="containerFriend" *ngFor="let followers of pendingFriends" class='deck'>
+                <app-card-friend [user]="followers" [pending]="false"></app-card-friend>
+            </div>
+        </div>       
+    </div>
+</div>
+
+
+<ng-template #noFriends>
+    <div class="centerContainer">
+        <div>
+            <h2><strong>Aucun amis</strong></h2>
+        </div>
+    </div>
+</ng-template>

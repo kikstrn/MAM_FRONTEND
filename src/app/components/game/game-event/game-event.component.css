@@ -1,0 +1,33 @@
+.centerContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.containerEvent {
+    display: flex;
+    flex-direction: row
+}
+
+.new-event {
+    background-color: var(--secondary-color);
+    color: var(--text-color-light);
+    margin-left: 1rem
+}
+
+.deck {
+    max-width: 32rem;
+    width: 100%;
+    margin: 5em auto 3em
+}
+
+.deck:before {
+    content: "";
+    position: relative;
+    width: 120%;
+    height: 95%;
+    top: -1.5em;
+    left: 0;
+    border-radius: 8px;
+    background: linear-gradient(109.61deg, #2c2f45 4.26%, #202333 84.84%)
+}

@@ -1,0 +1,12 @@
+<figure class="card-large" (click)="onClick(game._id)">
+    <div class="div-screenshot">
+        <img class="screenshot" *ngIf="game.screenshots.length != 0" src="https://images.igdb.com/igdb/image/upload/t_original/{{game.screenshots[0].image_id}}.jpg" />>
+    </div>
+    <div class="div-cover">
+        <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.cover.image_id}}.png">
+        <div class='card-info'>
+            <div> {{game.name}} </div>
+            <div> {{game.first_release_date.toString().split('T')[0]}} </div>
+        </div>
+    </div>
+</figure>

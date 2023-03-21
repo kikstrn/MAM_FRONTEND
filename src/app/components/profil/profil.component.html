@@ -1,0 +1,219 @@
+<div class="container-flex">
+    <ng-container *ngIf="user">
+        <div class="container">
+            <ng-container [ngTemplateOutlet]="readUser ?userRead : userManage" [ngTemplateOutletContext]="{ user:user }"></ng-container>
+        </div>
+    </ng-container>
+</div>
+
+<ng-template #userManage user='user'>
+    <table>
+        <tr>
+            <td>
+                <section class="section-avatar">
+                    <div class="avatar-upload">
+                        <div class="avatar-edit">
+                            <input type='file' id="file" accept=".png,.jpg,jpeg,.PNG,.JPEG" name="file" (change)="handleFileInput($event.target)" />
+                            <label for="file"></label>
+                        </div>
+                        <div class="avatar-preview">
+                            <img [src]="user?.avatar" alt="Avatar">
+                        </div>
+                    </div>
+                </section>
+                <h1>{{user?.username}}</h1>
+            </td>
+
+            <td class="section2">
+                <div class="flex-header-carousel" *ngIf="user.games?.length != 0; else noGames">
+                    <div>
+                        <h2 class="td-title">Jeux</h2>
+                    </div>
+                    <div class="scroll">
+                        <div class="scroll-left">
+                            <div class=material-icons (click)="scrollLeft(1)">chevron_left</div>
+                        </div>
+                        <div class="scroll-right">
+                            <div class=material-icons (click)="scrollRight(1)">chevron_right</div>
+                        </div>
+                    </div>
+                </div>
+                <ng-container *ngIf="user">
+                    <div class="carousel" id="carouselPopularGame">
+                        <div class="cards" *ngFor="let game of user.games">
+                            <app-card-game [game]="game"></app-card-game>
+                        </div>
+                    </div>    
+                </ng-container>
+            </td>            
+        </tr>
+        <tr>
+            <td>
+                <form *ngIf="user" [formGroup]="formGroup">
+                    <ul>
+                        <li><b>Pseudo :</b> <input class="edition" type="text" required formControlName="username" /> </li>
+                    </ul>
+                    <div class="div-btn-flex">
+                        <button class="button" type="submit" mat-raised-button color="primary" (click)="edition($event)">Modifier</button>
+                    </div>
+                    <div class="div-btn-flex">
+                        <button class="button" type="submit" mat-raised-button color="primary" (click)="deleteAccount()"> Supprimer le compte</button>
+                    </div>
+                </form>
+            </td>
+
+            <td>
+                <div class="div-flex">
+                    <div *ngIf="events?.length != 0; else noEvents">
+                        <h2 class="td-title">Evénements</h2>
+                        <div *ngFor="let event of events" class="user-review">
+                            <div>
+                                <a href="/jeu/{{event.game._id}}">
+                                    {{event.game.name}}
+                                </a>
+                                <div>
+                                    {{event.start_event.toString().split('T')[0]}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>                  
+                    <div *ngIf="reviews?.length != 0; else noReviews">
+                        <h2 class="td-title">Derniers Avis</h2>
+                        <div *ngFor="let review of reviews" class="user-review">
+                            <div>
+                                <a href="/jeu/{{review.game._id}}">
+                                    {{review.game.name}}
+                                </a>
+                            </div>
+                            <div>
+                                {{review.rating}}/10
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+            </td>
+        </tr>
+    </table>
+</ng-template>
+
+<ng-template #userRead user='user'>
+    <table>
+        <tr>
+            <td>
+                <section class="section-avatar">
+                    <div class="avatar-upload">
+                        <div class="avatar-preview">
+                            <img [src]="user?.avatar" alt="Avatar">
+                        </div>
+                    </div>
+                </section>
+
+                <h2>{{user?.username}}</h2>
+                <button class="button_friend" type="submit" mat-raised-button color="primary" (click)="addOrRemoveFriend()">{{buttonFriends}}</button>
+                <!-- <H4>Dernière connexion : 01/01/01 10h10 </H4> -->
+            </td>
+            <td>
+                
+                <div class="flex-header-carousel" *ngIf="user.games.length != 0; else noGames">
+                    <div>
+                        <h2 class="td-title">Jeux</h2>
+                    </div>
+                    <div class="scroll">
+                        <div class="scroll-left">
+                            <div class=material-icons (click)="scrollLeft(1)">chevron_left</div>
+                        </div>
+                        <div class="scroll-right">
+                            <div class=material-icons (click)="scrollRight(1)">chevron_right</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel" id="carouselPopularGame">
+                    <div class="cards" *ngFor="let game of user.games">
+                        <app-card-game [game]="game"></app-card-game>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h2 class="td-title">Amis</h2>
+                <div class="section-friends" *ngIf="user.friends?.length != 0; else noFriends">
+                    <div class="flex-friend" *ngFor="let friend of user.friends" (click)="onClickFriend(friend._id)">
+                        <div>
+                            <img src="{{friend.avatar}}" id="avatar" alt="Avatar" width="50" height="50" style="display: flex">
+                        </div>
+                        <div class="flex-info-friend">
+                            <div>
+                                {{friend.username}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+
+            <td>
+                <div class="div-flex">
+                    <div *ngIf="events?.length != 0; else noEvents">
+                        <h2 class="td-title">Evénements</h2>
+                        <div *ngFor="let event of events" class="user-review">
+                            <div>
+                                <a href="/jeu/{{event.game._id}}">
+                                    {{event.game.name}}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div *ngIf="reviews?.length != 0; else noReviews">
+                        <h2 class="td-title">Derniers Avis</h2>
+                        <div *ngFor="let review of reviews" class="user-review">
+                            <div>
+                                <a href="/jeu/{{review.game._id}}">
+                                    {{review.game.name}}
+                                </a>
+                            </div>
+                            <div>
+                                {{review.rating}}/10
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+            </td>
+        </tr>
+    </table>
+</ng-template>
+
+<ng-template #noGames>
+    <div>
+        <h2 class="td-title">Jeux</h2>
+    </div>
+    <p>Aucun jeux</p>
+</ng-template>
+
+<ng-template #noReviews>
+    <div>
+        <h2 class="td-title">Derniers Avis</h2>
+        <div class="user-review">
+            <div>
+               Aucun avis
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #noEvents>
+    <div>
+        <h2 class="td-title">Evénements</h2>
+        <div class="user-review">
+            <div>
+               Aucun événements
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #noFriends>
+    <div class="section-friends">
+        Aucun amis
+    </div>
+</ng-template>

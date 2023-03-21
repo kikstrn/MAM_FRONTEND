@@ -1,0 +1,10 @@
+.cards {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center
+}
+
+::placeholder {
+    color: #696970;
+    opacity: 1
+}

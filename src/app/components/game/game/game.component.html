@@ -1,0 +1,105 @@
+<div class="div-global">
+    <div class="game-top-image">
+        <img *ngIf="game.artworks.length > 0; else screenshot" src="{{game.getUrlArtwork()}}">
+        <ng-template #screenshot>
+            <img *ngIf="game.screenshots.length > 0; else notfound" src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{game.screenshots[0].image_id}}.png">
+        </ng-template>
+        <ng-template #notfound>
+            <img src="../../../assets/img-not-found.jpg">
+        </ng-template>
+    </div>
+    <div class="game-top-flex">
+        <div class="game-website">
+            <div *ngFor="let item of game.websites">
+                <div *ngIf="item.category == 1">
+                    <a href="{{item.url}}" target="_blank"><img src="https://www.igdb.com/icons/official-site.svg"></a>
+                </div>
+                <div *ngIf="item.category == 6">
+                    <a href="{{item.url}}" target="_blank"><img src="https://www.igdb.com/icons/twitch.svg"></a>
+                </div>
+                <div *ngIf="item.category == 9">
+                    <a href="{{item.url}}" target="_blank"><img src="https://www.igdb.com/icons/youtube.svg"></a>
+                </div>
+                <div *ngIf="item.category == 13">
+                    <a href="{{item.url}}" target="_blank"><img src="https://www.igdb.com/icons/steam.svg"></a>
+                </div>
+                <div *ngIf="item.category == 16">
+                    <a href="{{item.url}}" target="_blank"><img src="https://www.igdb.com/icons/epic.svg"></a>
+                </div>
+                <div *ngIf="item.category == 17">
+                    <a href="{{item.url}}" target="_blank"><img src="https://www.igdb.com/icons/gog.svg"></a>
+                </div>
+                <div *ngIf="item.category == 18">
+                    <a href="{{item.url}}" target="_blank"><img src="https://www.igdb.com/icons/discord.svg"></a>
+                </div>
+            </div>
+        </div>
+        <div class="game-cover">
+            <img alt="" src="{{game.getUrlCover()}}">
+            <button mat-button (click)="clickGame()">{{buttonGame}}</button>
+        </div>
+        <div class="game-infos">
+            <div class="game-global-info">
+                <h3>{{game.name}}</h3>
+                <span>
+                    <p *ngFor="let item of game.genres"> &nbsp; {{item.name}} &nbsp; </p> 
+                </span>
+                <span>
+                    <p *ngFor="let item of game.platforms"> &nbsp; {{item.abbreviation}} &nbsp; </p> 
+                </span>
+                <span>
+                    <p *ngIf="game.first_release_date">&nbsp; Sortie : {{game.first_release_date.toLocaleDateString()}}</p>
+                </span>
+            </div>
+            <div class="game-description">
+                <p *ngIf="game.summary_trad_fr; else noTrad">
+                    {{(readMore) ? game?.summary_trad_fr : game?.summary_trad_fr | slice:0:825}}
+                    <a href="javascript:;" class="read-more" *ngIf="!readMore" (click)="openDialogDescription()">.. En lire plus</a>
+                </p>
+                <ng-template #noTrad>
+                    <ng-container *ngIf="game.summary">
+                        <p>
+                            {{(readMore) ? game?.summary : game?.summary | slice:0:825}}
+                            <a href="javascript:;" class="read-more" *ngIf="!readMore" (click)="openDialogDescription()">.. En lire plus</a>
+                        </p>
+                    </ng-container>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+    <div class="global-game-galery">
+        <div class="control-galery">
+            <div class="scroll-left" (click)="scrollLeft()">
+                <div class=material-icons>chevron_left</div>
+            </div>
+            <div class="scroll-right" (click)="scrollRight()">
+                <div class=material-icons>chevron_right</div>
+            </div>
+        </div>
+        <div class="container-galery" id="container-galery">
+            <iframe *ngFor="let item of videos" [src]="item" width="900" allowfullscreen></iframe>
+            <img *ngFor="let item of game.screenshots" src="https://images.igdb.com/igdb/image/upload/t_original/{{item.image_id}}.png">
+        </div>
+    </div>
+    <div class="btn-global" *ngIf="released">
+        <div class="div-button">
+            <div>
+                <button mat-raised-button class="btn-reviews" (click)="onClickAnswers()">Avis</button>
+            </div>
+            <div>
+                <button mat-raised-button class="btn-events" (click)="onClickEvents()">Evenement</button>
+            </div>
+        </div>
+        <div *ngIf="eventActive; then templateEvent; else templateReview"></div>
+        <ng-template #templateEvent>
+            <app-game-event [_id]="_id"></app-game-event>
+        </ng-template>
+        <ng-template #templateReview>
+            <app-game-review [_id]="_id"></app-game-review>
+        </ng-template>
+    </div>
+</div>
+
+<ng-template #templateQuestion>
+    <app-game-review [_id]="_id"></app-game-review>
+</ng-template>

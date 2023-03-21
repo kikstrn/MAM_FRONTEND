@@ -1,0 +1,62 @@
+.container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.containerFriend {
+    display: flex;
+    flex-direction: row;
+}
+
+.deck {
+    max-width: 32rem;
+    width: 100%;
+    margin: 5em auto 3em
+}
+
+.deck:before::before {
+    content: "";
+    position: relative;
+    width: 120%;
+    height: 95%;
+    top: -1.5em;
+    left: 0;
+    border-radius: 8px;
+    background: linear-gradient(109.61deg, #2c2f45 4.26%, #202333 84.84%)
+}
+
+h2,
+h2 strong {
+    vertical-align: middle
+}
+
+h2 {
+    padding: 10px;
+    padding-left: 25px;
+    color: var(--text-color-light);
+    margin: 0;
+    margin-top: 1vh
+}
+
+h2 strong {
+    z-index: 2;
+    background: var(--secondary-color);
+    padding: 4px 8px
+}
+
+h2:after {
+    content: '';
+    z-index: 1;
+    bottom: 50%;
+    margin-bottom: -2px;
+    height: 2px;
+    left: 0;
+    right: 0;
+    background: #373d47
+}
+
+.test{
+    overflow: auto;
+    height: 100vh;
+}

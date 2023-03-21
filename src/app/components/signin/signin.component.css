@@ -1,0 +1,162 @@
+*,
+::after,
+::before {
+    box-sizing: border-box
+}
+
+.wrapper {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1140px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 100vh;
+    height: 50vh;
+    display: flex;
+    background: var(--sidebar-color);
+    box-shadow: 0 0 5px var(--secondary-color)
+}
+
+.col-left,
+.col-right {
+    padding: 30px;
+    display: flex
+}
+
+.col-left {
+    width: 60%;
+    -webkit-clip-path: polygon(0 0, 0 100%, 100% 0);
+    clip-path: polygon(0 0, 0 143%, 100% 0);
+    background: var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.col-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin-left: -10%
+}
+
+.login-text {
+    position: relative;
+    width: 100%;
+    color: var(--text-color-light);
+}
+
+.login-text h2 {
+    margin: 0 0 15px 0;
+    font-size: 30px;
+    font-weight: 700
+}
+
+.login-text p {
+    margin: 0 0 20px 0;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px
+}
+
+.login-text .btn {
+    display: inline-block;
+    padding: 7px 20px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: var(--text-color-light);
+    outline: 0;
+    border: 1px solid #fff;
+    box-shadow: inset 0 0 0 0 #fff;
+    transition: .3s;
+    -webkit-transition: .3s
+}
+
+.login-text .btn:hover {
+    color: var(--secondary-color);
+    box-shadow: inset 150px 0 0 0 #fff
+}
+
+.login-form {
+    position: relative;
+    width: 100%
+}
+
+.login-form h2 {
+    margin: 0 0 15px 0;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-color-light)
+}
+
+.login-form p {
+    margin: 0 0 10px 0;
+    text-align: left;
+    color: var(--text-color);
+    font-size: 15px
+}
+
+.login-form p:last-child {
+    margin: 0;
+    padding-top: 3px
+}
+
+.login-form p a {
+    color: var(--secondary-color);
+    font-size: 14px;
+    text-decoration: none
+}
+
+.login-form label {
+    display: block;
+    width: 100%;
+    margin-bottom: 2px;
+    letter-spacing: .5px
+}
+
+.login-form p:last-child label {
+    width: 60%;
+    float: left
+}
+
+.login-form input {
+    display: block;
+    width: 100%;
+    height: 35px;
+    padding: 0 10px;
+    outline: 0;
+    border: 1px solid #ccc
+}
+
+.login-form input:focus {
+    border-color: #ff574e
+}
+
+.login-form input[type=submit] {
+    display: inline-block;
+    width: 100%;
+    background-color: var(--secondary-color);
+    margin-top: 5px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border: 1px solid var(--secondary-color);
+    box-shadow: inset 0 0 0 0 var(--secondary-color);
+    color: var(--text-color-light)
+}
+.btnForgotPassword{
+    background-color: var(--sidebar-color);
+    border: none;
+    color: var(--secondary-color);
+    cursor: pointer;
+}
